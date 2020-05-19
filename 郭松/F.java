@@ -16,6 +16,7 @@ public class F {
                 int c = sc.nextInt();
                 arr[a][b] = arr[b][a] = c;
             }
+			//对于没有路径的结点标记为-1，表示不可达
             for (int i = 1; i <= n; i++) {
                 for (int j = 1; j <= n; j++) {
                     if (i != j)
@@ -23,6 +24,8 @@ public class F {
                             arr[i][j] = -1;
                 }
             }
+			
+			//下面循环是利用floyd算法对整个矩阵求最短路径
             for (int k = 1; k <= n; k++) {
                 for (int i = 1; i <= n; i++) {
                     for (int j = 1; j <= n; j++) {
@@ -31,6 +34,7 @@ public class F {
                     }
                 }
             }
+			//arr[1][n]为起点到终点的最短路径
             System.out.println(arr[1][n]);
         }
     }
